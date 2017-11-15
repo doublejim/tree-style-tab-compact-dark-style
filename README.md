@@ -1,20 +1,23 @@
 # Compact dark-brown style for Tree Style Tab by Piro.
 
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
-Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) is working in Firefox Quantum.
+Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) was working in Firefox Quantum.
 By default, with that extension, the tabs are very large and too bright.
-It takes 3 steps to get the proper vertical tabs experience.
-1. Disable the horizontal tabs.
+It takes 4 steps to get the proper vertical tabs experience.
+1. Enable Firefox dark theme.
+*Tools->Addons->Themes*. Press enable for the "Dark" theme.
+2. Disable the horizontal tabs and the Sidebar Header (large field above your vertical tabs).
 **On Windows:** You disable the horizontal tabs by locating the folder:
 *C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
 In that folder, if it doesn't exist already, create the folder: "chrome".
 In the "chrome" folder, put the file "userChrome.css".
-2. Change the style of Tree Style Tab.
-Under *Tools->Addons->Extensions->Tree Style Tab options*, you can write your own style rules.
+3. Change the style of Tree Style Tab.
+Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can write your own style rules.
 Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can change the colors, colorA to colorG, the tab-height, and the font-size to your liking.
-3. Change Tree Style Tab appearance:
-Under *Tools->Addons->Extensions->Tree Style Tab options*, choose the appearance which works best for you.
+4. Change Tree Style Tab appearance:
+Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you.
 "Metal" and "Sidebar" do not work very well with the style rules below.
+You'll most likely also want to disable "animation effects".
 
 ```css
 :root {

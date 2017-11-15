@@ -11,7 +11,7 @@ In that folder, if it doesn't exist already, create the folder: "chrome".
 In the "chrome" folder, put the file "userChrome.css".
 2. Change the style of Tree Style Tab.
 Under *Tools->Addons->Extensions->Tree Style Tab options*, you can write your own style rules.
-Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can change the colors: colorA to colorG, and the tab-height to your liking.
+Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can change the colors, colorA to colorG, the tab-height, and the font-size to your liking.
 3. Change Tree Style Tab appearance:
 Under *Tools->Addons->Extensions->Tree Style Tab options*, choose the appearance which works best for you.
 "Metal" and "Sidebar" do not work very well with the style rules below.
@@ -26,6 +26,7 @@ Under *Tools->Addons->Extensions->Tree Style Tab options*, choose the appearance
   --colorF: #281f1a;
   --colorG: green;
   --tab-height: 19px;
+  --font-size: 11px;
   background-color: var(--colorF);
 }
 
@@ -40,7 +41,7 @@ border-bottom: 1px solid var(--colorF);
 }
 
 .label {
-font-size: 11px;
+font-size: var(--font-size);
 }
 
 .tab.active .label {

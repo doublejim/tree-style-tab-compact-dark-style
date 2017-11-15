@@ -41,7 +41,7 @@ color: black;
 }
 
 .tab.active {
-
+color: black;
 background-color: #ecff6b;
 }
 

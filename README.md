@@ -11,25 +11,32 @@ In that folder, if it doesn't exist already, create the folder: "chrome".
 In the "chrome" folder, put the file "userChrome.css".
 2. Change the style of Tree Style Tab.
 Under *Tools->Addons->Extensions->Tree Style Tab options*, you can write your own style rules.
-Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can, of course, change the colors to your liking.
+Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can change the colors: colorA to colorG, and the tab-height to your liking.
 3. Change Tree Style Tab appearance:
 Under *Tools->Addons->Extensions->Tree Style Tab options*, choose the appearance which works best for you.
 "Metal" and "Sidebar" do not work very well with the style rules below.
 
 ```css
 :root {
+  --colorA: #ecff6b;
+  --colorB: #a4ffac;
+  --colorC: #b4b4b4;
+  --colorD: #5ceaff;
+  --colorE: #514350;
+  --colorF: #281f1a;
+  --colorG: green;
   --tab-height: 19px;
-  background-color: #281f1a;
+  background-color: var(--colorF);
 }
 
 .tab {
 color: white;
-background-color: #514350;
+background-color: var(--colorE);
 height: var(--tab-height);
 border-top: none;
 border-right: none;
 border-left: none;
-border-bottom: 1px solid #281f1a;
+border-bottom: 1px solid var(--colorF);
 }
 
 .label {
@@ -40,9 +47,27 @@ font-size: 11px;
 color: black;
 }
 
+.tab .counter {
+ color: var(--colorD);
+}
+
+.tab.active .twisty
+{
+ color: var(--colorG);
+}
+
 .tab.active {
 color: black;
-background-color: #ecff6b;
+background-color: var(--colorA);
+}
+
+.tab.active:hover {
+ background-color: var(--colorA);
+}
+
+.tab:hover, .tab:not(.active):hover {
+  color: black;
+  background-color: var(--colorB);
 }
 
 .tab.unread .label {
@@ -50,7 +75,7 @@ background-color: #ecff6b;
 }
 
 .tab.discarded {
-  color: #b4b4b4;
+  color: var(--colorC);
   background-color: black;
   border-top: none;
   border-bottom: 1px solid black;

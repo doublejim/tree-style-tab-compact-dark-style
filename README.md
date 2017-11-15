@@ -6,8 +6,7 @@ By default, with that extension, the tabs are very large and too bright.
 It takes 2 steps to get the proper vertical tabs experience.
 1. Disable the horizontal tabs.
 **On Windows:** You disable the horizontal tabs by locating the folder:
-*C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*
-
+*C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
 In that folder, if it doesn't exist already, create the folder: "chrome".
 In the "chrome" folder, put the file "userChrome.css".
 2. Change the style of Tree Style Tab.

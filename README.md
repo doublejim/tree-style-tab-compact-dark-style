@@ -9,11 +9,12 @@ It takes 3 steps to get the proper vertical tabs experience.
 *C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
 In that folder, if it doesn't exist already, create the folder: "chrome".
 In the "chrome" folder, put the file "userChrome.css".
-2. Change Tree Style Tab appearance:
-Under *Tools->Addons->Extensions->Tree Style Tab options*, choose either "Vertigo" or "Mixed" appearance (for compatibility with step 3).
-3. Change the style of Tree Style Tab.
+2. Change the style of Tree Style Tab.
 Under *Tools->Addons->Extensions->Tree Style Tab options*, you can write your own style rules.
-Copy and paste all of the style rules below, for a compact, dark-brown look. You can, of course, change the colors to your liking:
+Copy and paste all of the style rules below, for a compact, dark-brown look. You can, of course, change the colors to your liking.
+3. Change Tree Style Tab appearance:
+Under *Tools->Addons->Extensions->Tree Style Tab options*, choose the appearance which works best for you.
+"Metal" and "Sidebar" do not work very well with the style rules below.
 
 ```css
 :root {
@@ -31,11 +32,16 @@ border-left: none;
 border-bottom: 1px solid #281f1a;
 }
 
-.tab .label {
+.label {
 font-size: 11px;
 }
 
-.tab.active{
+.tab.active .label {
+color: black;
+}
+
+.tab.active {
+
 background-color: #ecff6b;
 }
 

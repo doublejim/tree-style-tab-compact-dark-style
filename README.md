@@ -5,14 +5,16 @@ Looking for a replacement, I found that Tree Style Tab by Piro (which I used bef
 By default, with that extension, the tabs are very large and too bright.
 It takes 2 steps to get the proper vertical tabs experience.
 1. Disable the horizontal tabs.
-On Windows you disable the horizontal tabs by locating the folder:
-C:\Users\%USERNAME%\AppData\Roaming\Mozilla\Firefox\Profiles\%LETTERS_AND_NUMBERS%.default\
-In that folder, create a new folder, and call it "chrome".
+**On Windows:** You disable the horizontal tabs by locating the folder:
+*C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*
+
+In that folder, if it doesn't exist already, create the folder: "chrome".
 In the "chrome" folder, put the file "userChrome.css".
 2. Change the style of Tree Style Tab.
 In *Tools->Addons->Extensions->Tree Style Tab options*, you can write your own style rules.
 Copy and paste all of the style rules below, for a compact, dark-brown look. You can, of course, change the colors to your liking:
 
+```css
 :root {
   --tab-height: 19px;
   background-color: #281f1a;
@@ -50,3 +52,4 @@ background-color: #ecff6b;
 .tab.private-browsing .label:before {
   content: "🕶";
 }
+```

@@ -7,9 +7,10 @@ It takes 4 steps to get the proper vertical tabs experience.
 1. Enable Firefox dark theme.
 *Tools->Addons->Themes*. Press enable for the "Dark" theme.
 2. Disable the horizontal tabs and the Sidebar Header (large field above your vertical tabs).
-**On Windows:** You disable the horizontal tabs by locating the folder:
-*C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
-In that folder, if it doesn't exist already, create the folder: "chrome".
+You disable the horizontal tabs by locating the folder:
+* **On Windows:** *C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
+* **On Linux:** *~/.mozilla/firefox/%LETTERS_AND_NUMBERS%.default/*.<br>
+In that folder, create the folder: "chrome", if it doesn't exist already.
 In the "chrome" folder, put the file "userChrome.css".
 3. Change the style of Tree Style Tab.
 Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can write your own style rules.

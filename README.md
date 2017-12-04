@@ -10,6 +10,7 @@ It takes 4 steps to get the proper vertical tabs experience.
 You disable the horizontal tabs by locating the folder:
 * **On Windows:** *C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
 * **On Linux:** *~/.mozilla/firefox/%LETTERS_AND_NUMBERS%.default/*.<br>
+* **On Mac:** *~/Library/Application Support/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.<br>
 In that folder, create the folder: "chrome", if it doesn't exist already.
 In the "chrome" folder, put the file "userChrome.css".
 3. Change the style of Tree Style Tab.

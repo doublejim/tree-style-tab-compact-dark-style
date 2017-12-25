@@ -46,6 +46,7 @@ border-bottom: 1px solid var(--colorF);
 }
 
 .label {
+color: white;
 font-size: var(--font-size);
 }
 

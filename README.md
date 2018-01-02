@@ -1,5 +1,7 @@
 # Compact dark-brown Firefox style for Tree Style Tab by Piro.
 
+![alt text](https://github.com/doublejim/tree-style-tab-compact-dark-style/raw/master/screenshot.png)
+
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
 Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) was working in Firefox Quantum.
 By default, with that extension, the tabs are very large and too bright.
@@ -24,7 +26,7 @@ You'll most likely also want to disable "animation effects".
 ```css
 :root {
   --colorA: #ecff6b;
-  --colorB: #a4ffac;
+  --colorB: #6affda;
   --colorC: #b4b4b4;
   --colorD: #5ceaff;
   --colorE: #514350;
@@ -35,8 +37,15 @@ You'll most likely also want to disable "animation effects".
   background-color: var(--colorF);
 }
 
+:root.simulate-svg-context-fill .tab.active .closebox::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab:hover .closebox::after {
+  background: black;
+}
+
 .tab {
-color: white;
 background-color: var(--colorE);
 height: var(--tab-height);
 border-top: none;
@@ -46,7 +55,6 @@ border-bottom: 1px solid var(--colorF);
 }
 
 .label {
-color: white;
 font-size: var(--font-size);
 }
 
@@ -70,6 +78,10 @@ background-color: var(--colorA);
 
 .tab.active:hover {
  background-color: var(--colorA);
+}
+
+.tab:hover .label {
+ color: black;
 }
 
 .tab:hover, .tab:not(.active):hover {

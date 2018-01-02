@@ -59,6 +59,10 @@ border-bottom: 1px solid var(--colorF);
 font-size: var(--font-size);
 }
 
+.tab .label {
+  color: white;
+}
+
 .tab.active .label {
 color: black;
 }

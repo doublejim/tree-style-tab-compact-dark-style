@@ -21,7 +21,7 @@ Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can wri
 Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can change the colors, colorA to colorG, the tab-height, and the font-size to your liking.
 4. Change Tree Style Tab appearance:
 Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you.
-"Metal" and "Sidebar" do not work very well with the style rules below.
+"Plain Dark" should work best with the style rules below. "Metal" and "Sidebar" do not work well.
 You'll most likely also want to disable "animation effects".
 
 ```css

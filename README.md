@@ -1,6 +1,7 @@
 # Compact dark-brown Firefox style for Tree Style Tab by Piro.
-
-![alt text](https://github.com/doublejim/tree-style-tab-compact-dark-style/raw/master/screenshot.png)
+<p align="center">
+<img alt="screenshot" src="https://github.com/doublejim/tree-style-tab-compact-dark-style/raw/master/screenshot.png"/>
+</p>
 
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
 Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) was working in Firefox Quantum.

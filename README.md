@@ -1,4 +1,4 @@
-# Compact dark-brown Firefox style for Tree Style Tab by Piro.
+# Compact dark Firefox style for Tree Style Tab by Piro.
 <p align="center">
 <img alt="screenshot" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/351b07d7c3de4fed996f0dc0828fa1576c4b1bb3/screenshot.png"/>
 </p>

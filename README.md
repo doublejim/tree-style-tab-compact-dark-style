@@ -19,7 +19,7 @@ In that folder, create the folder: "chrome", if it doesn't exist already.
 In the "chrome" folder, put the file "userChrome.css".
 3. Change the style of Tree Style Tab.
 Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can write your own style rules.
-Copy and paste the style rules (css) below, for a compact, dark/gray look. You can change the colors: colorA to colorG, the tab-height, and the font-size to your liking. As an alternative to using these many style rules, you can also keep it simple by using only the two rules at the bottom of the page, which just make your tabs compact. Then use the "Plain Dark" appearance (step 4).
+Copy and paste the style rules (css) below, for a compact, dark/gray look. You can change the colors: colorA to colorG, the tab-height, and the font-size to your liking. As an alternative to using these many style rules, you can keep it simple by using only the two rules at the bottom of the page, which only make your tabs compact. Then use the "Plain Dark" appearance (step 4).
 4. Change Tree Style Tab appearance:
 Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you. "Metal" and "Sidebar" do not work well with the css below.
 You'll most likely also want to disable "animation effects".

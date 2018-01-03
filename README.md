@@ -1,7 +1,8 @@
 # Compact dark Firefox style for Tree Style Tab by Piro.
-<p align="center">
-<img alt="screenshot" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/351b07d7c3de4fed996f0dc0828fa1576c4b1bb3/screenshot.png"/>
-</p>
+<div align="center">
+<img alt="screenshot" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/master/screenshot.png"/>
+<img alt"screenshot/only compact" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/master/screenshot-only-compact.png"/>
+</div>
 
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
 Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) was working in Firefox Quantum.
@@ -13,15 +14,14 @@ It takes 4 steps to get the proper vertical tabs experience.
 You disable the horizontal tabs by locating the folder:
 * **On Windows:** *C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
 * **On Linux:** *~/.mozilla/firefox/%LETTERS_AND_NUMBERS%.default/*.<br>
-* **On Mac:** *~/Library/Application Support/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.<br>
+* **On Mac:** *~/Library/Application Support/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.<br><br>
 In that folder, create the folder: "chrome", if it doesn't exist already.
 In the "chrome" folder, put the file "userChrome.css".
 3. Change the style of Tree Style Tab.
 Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can write your own style rules.
-Copy and paste all of the style rules (css) below, for a compact, dark-brown look. You can change the colors, colorA to colorG, the tab-height, and the font-size to your liking.
+Copy and paste the style rules (css) below, for a compact, dark/gray look. You can change the colors: colorA to colorG, the tab-height, and the font-size to your liking. As an alternative to using these many style rules, you can also keep it simple by using only the two rules at the bottom of the page, which just make your tabs compact. Then use the "Plain Dark" appearance (step 4).
 4. Change Tree Style Tab appearance:
-Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you.
-"Plain Dark" should work best with the style rules below. "Metal" and "Sidebar" do not work well.
+Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you. "Metal" and "Sidebar" do not work well with the css below.
 You'll most likely also want to disable "animation effects".
 
 ```css
@@ -36,6 +36,10 @@ You'll most likely also want to disable "animation effects".
   --tab-height: 19px;
   --font-size: 11px;
   background-color: var(--colorF);
+}
+
+:root.simulate-svg-context-fill .closebox::after {
+  background: white;
 }
 
 :root.simulate-svg-context-fill .tab.active .closebox::after {
@@ -114,7 +118,7 @@ background-color: var(--colorA);
 
 The following css will only make the tabs more compact, without changing any of the colors.
 Works for all appearances.
-```
+```css
 .tab {
 height: 19px;
 }

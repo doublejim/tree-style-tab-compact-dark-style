@@ -109,3 +109,17 @@ background-color: var(--colorA);
   content: "🕶";
 }
 ```
+
+## Alternatively: only make the tabs compact.
+
+The following css will only make the tabs more compact, without changing any of the colors.
+Works for all appearances.
+```
+.tab {
+height: 19px;
+}
+
+.label {
+font-size: 11px;
+}
+```

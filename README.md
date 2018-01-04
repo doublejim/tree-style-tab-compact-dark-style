@@ -1,8 +1,24 @@
 # Compact dark Firefox style for Tree Style Tab by Piro.
-<div align="center">
-<img alt="screenshot" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/master/screenshot.png"/>
-<img alt"screenshot/only compact" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/master/screenshot-only-compact.png"/>
-</div>
+
+### End result from following this guide:
+<table>
+    <tr>
+      <td align="center">
+        With all the style rules enabled:
+      </td>
+      <td align="center">
+        Or a simple, compact Plain Dark:
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <img alt="screenshot" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/master/screenshot.png"/>
+      </td>
+      <td>
+        <img alt"screenshot/only compact" src="https://raw.githubusercontent.com/doublejim/tree-style-tab-compact-dark-style/master/screenshot-only-compact.png"/>
+      </td>
+    </tr>
+</table>
 
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
 Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) was working in Firefox Quantum.

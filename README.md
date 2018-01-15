@@ -66,6 +66,14 @@ You'll most likely also want to disable "animation effects".
   background: black;
 }
 
+:root.simulate-svg-context-fill .tab.active .sound-button::after {
+  background: black;
+}
+
+:root.simulate-svg-context-fill .tab:hover .sound-button::after {
+  background: black;
+}
+
 .tab {
 background-color: var(--colorE);
 height: var(--tab-height);

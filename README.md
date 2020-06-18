@@ -21,24 +21,43 @@
 </table>
 
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
-Looking for a replacement, I found that Tree Style Tab by Piro (which I used before Tab Tree) was working in Firefox Quantum.
+Looking for a replacement, I found that Tree Style Tab by Piro was working in Firefox Quantum.
 By default, with that extension, the tabs are very large and too bright.
-It takes 4 steps to get the proper vertical tabs experience.
-1. Enable Firefox dark theme.
-*Tools->Addons->Themes*. Press enable for the "Dark" theme.
-2. Disable the horizontal tabs and the Sidebar Header (large field above your vertical tabs).
-You disable the horizontal tabs by locating the folder:
-* **On Windows:** *C:/Users/%USERNAME%/AppData/Roaming/Mozilla/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.
-* **On Linux:** *~/.mozilla/firefox/%LETTERS_AND_NUMBERS%.default/*.<br>
-* **On Mac:** *~/Library/Application Support/Firefox/Profiles/%LETTERS_AND_NUMBERS%.default/*.<br><br>
-In that folder, create the folder: "chrome", if it doesn't exist already.
-In the "chrome" folder, put the file "userChrome.css".
-3. Change the style of Tree Style Tab.
+It takes 5 steps to get the proper vertical tabs experience.
+
+1. <b>Install the "Tree Style Tab" addon for Firefox.</b> It can be downloaded from <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/">here</a>.
+2. <b>Enable Firefox dark theme.</b><br>
+Open *Tools->Addons->Themes*. Press enable for the "Dark" theme.
+3. <b>Disable the horizontal tabs and the Sidebar Header</b> (large field above your vertical tabs).<br>
+You'll first need to open your Firefox profile folder. In Firefox, open the url: "about:support".<br>
+There's an entry titled *Application Basics->Profile Folder* or *Application Basics->Profile Directory*. Clicking the button "Open Folder" should open the profile folder. If that doesn't work, navigate to the listed directory in your file browser.
+
+In the profile folder, create a folder named "chrome".
+Then create a file called "userChrome.css" in the chrome folder.
+
+Paste this content into your userChrome.css file:
+```css
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#TabsToolbar {
+  visibility: collapse;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  visibility: collapse;
+}
+```
+Restart Firefox to apply the userChrome CSS.
+
+4. <b>Change the style of Tree Style Tab.</b><br>
 Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can write your own style rules.
-Copy and paste the style rules (css) below, for a compact, dark/gray look. You can change the colors: colorA to colorG, the tab-height, and the font-size to your liking. As an alternative to using these many style rules, you can keep it simple by using only the two rules at the bottom of the page, which only make your tabs compact. Then use the "Plain Dark" appearance (step 4).
-4. Change Tree Style Tab appearance:
-Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you. "Metal" and "Sidebar" do not work well with the css below.
+Copy and paste the style rules (CSS) below, for a compact, dark/gray look. You can change the colors: colorA to colorG, the tab-height, and the font-size to your liking. As an alternative to using these many style rules, you can keep it simple by using only the two rules at the bottom of the page, which only make your tabs compact. Then use the "Plain Dark" appearance (step 5).
+5. <b>Change Tree Style Tab appearance:</b><br>
+Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you. "Metal" and "Sidebar" do not work well with the CSS below.
 You'll most likely also want to disable "animation effects".
+
+You're done. It should be working now!<br>
+Remember that if you close the vertical tabs area by mistake, or you use the area to show bookmarks, you can always press F1 to bring the tabs back again. Have fun.
 
 ```css
 :root {
@@ -75,16 +94,16 @@ You'll most likely also want to disable "animation effects".
 }
 
 .tab {
-background-color: var(--colorE);
-height: var(--tab-height);
-border-top: none;
-border-right: none;
-border-left: none;
-border-bottom: 1px solid var(--colorF);
+  background-color: var(--colorE);
+  height: var(--tab-height);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--colorF);
 }
 
 .label {
-font-size: var(--font-size);
+  font-size: var(--font-size);
 }
 
 .tab .label {
@@ -92,29 +111,29 @@ font-size: var(--font-size);
 }
 
 .tab.active .label {
-color: black;
+  color: black;
 }
 
 .tab .counter {
- color: var(--colorD);
+  color: var(--colorD);
 }
 
 .tab.active .twisty
 {
- color: var(--colorG);
+  color: var(--colorG);
 }
 
 .tab.active {
-color: black;
-background-color: var(--colorA);
+  color: black;
+  background-color: var(--colorA);
 }
 
 .tab.active:hover {
- background-color: var(--colorA);
+  background-color: var(--colorA);
 }
 
 .tab:hover .label {
- color: black;
+  color: black;
 }
 
 .tab:hover, .tab:not(.active):hover {
@@ -144,10 +163,10 @@ The following css will only make the tabs more compact, without changing any of 
 Works for all appearances.
 ```css
 .tab {
-height: 19px;
+  height: 19px;
 }
 
 .label {
-font-size: 11px;
+  font-size: 11px;
 }
 ```

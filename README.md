@@ -19,11 +19,16 @@
       </td>
     </tr>
 </table>
-
+<table>
+<tr>
+<td>
 With the update to Firefox Quantum, I was no longer able to use Tab Tree by Sergey Zelentsov.
 Looking for a replacement, I found that Tree Style Tab by Piro was working in Firefox Quantum.
 By default, with that extension, the tabs are very large and too bright.
 It takes 5 steps to get the proper vertical tabs experience.
+    </td>
+</tr>
+</table>
 
 1. <b>Install the "Tree Style Tab" addon for Firefox.</b> It can be downloaded from <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/">here</a>.
 2. <b>Enable Firefox dark theme.</b><br>

@@ -7,7 +7,7 @@
         With all the style rules enabled:
       </td>
       <td align="center">
-        Or a simple, compact Plain Dark:
+        Only updated tab height and font size, using a tree style tab theme:
       </td>
     </tr>
     <tr>

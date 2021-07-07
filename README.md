@@ -32,7 +32,7 @@ It takes 5 steps to get the proper vertical tabs experience.
 
 1. <b>Install the "Tree Style Tab" addon for Firefox.</b> It can be downloaded from <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/">here</a>.
 2. <b>Enable Firefox dark theme.</b><br>
-Open *Tools->Addons->Themes*. Press enable for the "Dark" theme.
+Open *Tools->Add-ons and Themes->Themes*. Press enable for the "Dark" theme.
 3. <b>Disable the horizontal tabs and the Sidebar Header</b> (large field above your vertical tabs).<br>
 You'll first need to open your Firefox profile folder. In Firefox, open the url: "about:support".<br>
 There's an entry titled *Application Basics->Profile Folder* or *Application Basics->Profile Directory*. Clicking the button "Open Folder" should open the profile folder. If that doesn't work, navigate to the listed directory in your file browser.
@@ -55,110 +55,167 @@ Paste this content into your userChrome.css file:
 Restart Firefox to apply the userChrome CSS.
 
 4. <b>Change the style of Tree Style Tab.</b><br>
-Under *Tools->Addons->Extensions->Tree Style Tab options->Advanced*, you can write your own style rules.
-Copy and paste the style rules (CSS) below, for a compact, dark/gray look. You can change the colors: colorA to colorG, the tab-height, and the font-size to your liking. As an alternative to using these many style rules, you can keep it simple by using only the two rules at the bottom of the page, which only make your tabs compact. Then use the "Plain Dark" appearance (step 5).
+Under *Tools->Addons->Extensions->Tree Style Tab->Preferences->Advanced->Extra style rules*, you can write your own style rules.
+Copy and paste the style rules (CSS) below, for a compact, dark/gray look. You can change the colors, the tab-height, and the font-size to your liking.
 5. <b>Change Tree Style Tab appearance:</b><br>
-Under *Tools->Addons->Extensions->Tree Style Tab options->Appearance*, choose the appearance which works best for you. "Metal" and "Sidebar" do not work well with the CSS below.
-You'll most likely also want to disable "animation effects".
+Under *Tools->Addons->Extensions->Tree Style Tab->Preferences*, in the top, either choose "No Decoration" if you want to use the many style rules, or choose one of the themes, and use the two rules at the bottom of this page, which only make your tabs compact, and will work for all themes.
+You'll most likely also want to disable "Enable animation effects".
 
 You're done. It should be working now!<br>
 Remember that if you close the vertical tabs area by mistake, or you use the area to show bookmarks, you can always press F1 to bring the tabs back again. Have fun.
 
 ```css
 :root {
-  --colorA: #ecff6b;
-  --colorB: #6affda;
-  --colorC: #b4b4b4;
-  --colorD: #5ceaff;
-  --colorE: #514350;
-  --colorF: #281f1a;
-  --colorG: green;
-  --tab-height: 19px;
-  --font-size: 11px;
-  background-color: var(--colorF);
+  --colorA: rgb(255,192,77); /* active tab */
+  --colorB: rgb(255,201,102); /* hovered tab */
+  --colorC: white; /* scrollbar */
+  --colorD: #5ceaff; /* child tab counter */
+  --colorE: #4D404B; /* tab background */
+  --colorF: #5ceaff; /* sound indicator icon */
+  --colorG: #392F39; /* new tab button */
+  --colorH: #1c1b22; /* background below new tab button + indent */
+  --tab-height: 19px; /* tab height, default: 19px */
+  --font-size: 11px;  /* tab height, default: 11px */
 }
 
+/* the x on each tab */
 :root.simulate-svg-context-fill .closebox::after {
   background: white;
 }
 
-:root.simulate-svg-context-fill .tab.active .closebox::after {
-  background: black;
+/* sound indicator */
+:root.simulate-svg-context-fill .sound-button::after {
+  background: var(--colorF);
 }
 
-:root.simulate-svg-context-fill .tab:hover .closebox::after {
-  background: black;
-}
-
-:root.simulate-svg-context-fill .tab.active .sound-button::after {
-  background: black;
-}
-
+/* set x and sound indicator color when tab is active or hovered */
+:root.simulate-svg-context-fill .tab.active .closebox::after,
+:root.simulate-svg-context-fill .tab:hover .closebox::after,
+:root.simulate-svg-context-fill .tab.active .sound-button::after,
 :root.simulate-svg-context-fill .tab:hover .sound-button::after {
   background: black;
 }
 
+/* indented area before tab */
+tab-item .extra-items-container.indent {
+  background-color: var(--colorH);
+}
+
+/* tab container, opened tabs */
 .tab {
-  background-color: var(--colorE);
+  background-color: var(--colorE); 
   height: var(--tab-height);
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-bottom: 1px solid var(--colorF);
 }
 
+/* tab contents */
 .label {
+  margin-top: -2px;
+  margin-left: 2px;
   font-size: var(--font-size);
-}
-
-.tab .label {
   color: white;
+  line-height: var(--tab-height);
 }
 
+/* number of tab children */
+.tab .counter {
+  margin-top: -3px;
+  color: var(--colorD);
+}
+
+/* active tab text */
 .tab.active .label {
   color: black;
 }
 
-.tab .counter {
-  color: var(--colorD);
-}
-
-.tab.active .twisty
-{
-  color: var(--colorG);
-}
-
+/* active tab, whole area */
 .tab.active {
-  color: black;
   background-color: var(--colorA);
 }
 
-.tab.active:hover {
-  background-color: var(--colorA);
-}
-
+/* hovered tab, text */
 .tab:hover .label {
   color: black;
 }
 
+/* hovered tab, whole line */
 .tab:hover, .tab:not(.active):hover {
-  color: black;
   background-color: var(--colorB);
 }
 
-.tab.unread .label {
-  font-style: italic;
-}
-
+/* unloaded tab */
 .tab.discarded {
-  color: var(--colorC);
   background-color: black;
-  border-top: none;
-  border-bottom: 1px solid black;
 }
 
-.tab.private-browsing .label:before {
-  content: "🕶";
+/* hide hidden tabs (it some times displays white area on larger tab sizes if this is not set) */
+tab-item.collapsed {
+  display: none; 
+}
+
+/* drop tab location */
+tab-item[data-drop-position="self"] tab-item-substance {
+  outline-color: white !important; /* border around text */
+  background-color: white;         /* make drop tab white */
+}
+
+/* drop tab location label */
+tab-item[data-drop-position="self"] tab-item-substance .label {
+ color: black; 
+}
+
+/* drop tab location line after/before tab */
+tab-item[data-drop-position]:not([data-drop-position="self"]) tab-item-substance::before {
+  background-color:white !important;
+}
+
+/* open/close tree chevron on tab move */
+tab-item:not(.collapsed):not(.subtree-collapsed) tab-twisty {
+  color: white !important;
+}
+
+/* open/close tree chevron on the left of the tab*/
+tab-twisty::before {
+  background-color: white !important; 
+}
+
+/* active/hovered tab tree chevron */
+.tab:hover tab-twisty::before,
+.tab.active tab-twisty::before {
+  background-color: black !important; 
+}
+
+/* scrollbar */
+#tabbar {
+  scrollbar-color: var(--colorC) rgba(0,0,0,0.8);
+}
+
+/* new tab button */
+:root.simulate-svg-context-fill .newtab-button {
+  background-color: var(--colorG);
+  border-top: 1px solid rgba(0,0,0,0.2);
+  line-height: 20px;
+}
+
+/* new tab button hover */
+:root.simulate-svg-context-fill .newtab-button:hover {
+  background-color: grey !important;
+}
+
+/* new tab plus sign */
+:root.simulate-svg-context-fill .newtab-button::after {
+  background-color: white;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+/* new tab plus sign on hover */
+:root.simulate-svg-context-fill .newtab-button:hover.newtab-button::after {
+  background-color: black; 
+}
+
+/* background under new tab button */
+#background {
+  background: var(--colorH); 
 }
 ```
 

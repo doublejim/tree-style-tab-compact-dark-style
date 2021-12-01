@@ -52,7 +52,9 @@ Paste this content into your userChrome.css file:
   visibility: collapse;
 }
 ```
-Restart Firefox to apply the userChrome CSS.
+Open the url: "about:config" and search for "toolkit.legacyUserProfileCustomizations.stylesheets". Ensure that the value says "true" (you might need to toggle the value). This step is necessary in order to make Firefox read the userChrome.css file.
+
+Restart Firefox to apply the userChrome CSS - the regular tabs are now hidden.
 
 4. <b>Change the style of Tree Style Tab.</b><br>
 Under *Tools->Addons->Extensions->Tree Style Tab->Preferences->Advanced->Extra style rules*, you can write your own style rules.

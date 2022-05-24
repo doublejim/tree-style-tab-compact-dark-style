@@ -68,7 +68,7 @@ Remember that if you close the vertical tabs area by mistake, or you use the are
 
 ```css
 :root {
-  --colorA: rgb(255,192,77); /* active tab */
+  --colorA: rgb(255,192,77); /* active tab(s) */
   --colorB: rgb(255,201,102); /* hovered tab */
   --colorC: white; /* scrollbar */
   --colorD: #5ceaff; /* child tab counter */
@@ -76,6 +76,7 @@ Remember that if you close the vertical tabs area by mistake, or you use the are
   --colorF: #5ceaff; /* sound indicator icon */
   --colorG: #392F39; /* new tab button */
   --colorH: #1c1b22; /* background below new tab button + indent */
+  --colorI: rgb(215,139,1); /* on drag select tabs (for Multiple Tab Handler extension) */
   --tab-height: 19px; /* tab height, default: 19px */
   --font-size: 11px;  /* tab height, default: 11px */
 }
@@ -90,9 +91,13 @@ Remember that if you close the vertical tabs area by mistake, or you use the are
   background: var(--colorF);
 }
 
-/* set x and sound indicator color when tab is active or hovered */
+/* set x and sound indicator color when tab is active, highlighted, drag-select or hovered */
+:root.simulate-svg-context-fill .tab.highlighted .closebox::after,
+:root.simulate-svg-context-fill .tab.mth-ready-to-select .closebox::after,
 :root.simulate-svg-context-fill .tab.active .closebox::after,
 :root.simulate-svg-context-fill .tab:hover .closebox::after,
+:root.simulate-svg-context-fill .tab.highlighted .sound-button::after,
+:root.simulate-svg-context-fill .tab.mth-ready-to-select .sound-button::after,
 :root.simulate-svg-context-fill .tab.active .sound-button::after,
 :root.simulate-svg-context-fill .tab:hover .sound-button::after {
   background: black;
@@ -124,14 +129,27 @@ tab-item .extra-items-container.indent {
   color: var(--colorD);
 }
 
-/* active tab text */
-.tab.active .label {
+/* unloaded tab */
+.tab.discarded {
+  background-color: black;
+}
+
+/* active tab(s) text + during drag selection (for Multiple Tab Handler extension) */
+.tab.active .label,
+.tab.highlighted .label,
+.tab.mth-ready-to-select .label {
   color: black;
 }
 
-/* active tab, whole area */
-.tab.active {
+/* active tab(s), whole area */
+.tab.active,
+.tab.highlighted {
   background-color: var(--colorA);
+}
+
+/* tabs during drag selecting tabs (for Multiple Tab Handler extension) */
+.tab.mth-ready-to-select {
+  background-color: var(--colorI); 
 }
 
 /* hovered tab, text */
@@ -142,11 +160,6 @@ tab-item .extra-items-container.indent {
 /* hovered tab, whole line */
 .tab:hover, .tab:not(.active):hover {
   background-color: var(--colorB);
-}
-
-/* unloaded tab */
-.tab.discarded {
-  background-color: black;
 }
 
 /* hide hidden tabs (it some times displays white area on larger tab sizes if this is not set) */
@@ -180,9 +193,11 @@ tab-twisty::before {
   background-color: white !important; 
 }
 
-/* active/hovered tab tree chevron */
+/* active/hovered/drag-select tabs tree chevron */
 .tab:hover tab-twisty::before,
-.tab.active tab-twisty::before {
+.tab.active tab-twisty::before,
+.tab.highlighted tab-twisty::before,
+.tab.mth-ready-to-select tab-twisty::before {
   background-color: black !important; 
 }
 
